@@ -56,12 +56,8 @@
                     </div>
 
                     <div class="request-info-2">
-                        <section class="btns">
-                            <button class="btn-body">Body</button>
-                            <button class="btn-auth">Auth</button>
-                        </section>
                         <section class="forms">
-                            <div class="req-body hide">
+                            <div class="req-body">
                                 <label>
                                     Request Body
                                     <textarea
@@ -70,7 +66,16 @@
                                     ></textarea>
                                 </label>
                             </div>
-                            <div class="req-auth hide">auth</div>
+                            <div class="req-auth">
+                                <label>
+                                    Auth token
+                                    <textarea
+                                        name="req-token"
+                                        id="req-token"
+                                        placeholder="Enter token. Authentication scheme is set to `Bearer`"
+                                    ></textarea>
+                                </label>
+                            </div>
                         </section>
                     </div>
                 </form>

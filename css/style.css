@@ -43,19 +43,18 @@ header {
 
 .request-info-2 .forms {
     margin-top: 1rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
 }
 
-.request-info-2 .btns button {
-    padding: 0.5em 1em;
-    font-weight: normal;
-}
-
-.req-body textarea {
+.req-body textarea,
+.req-auth textarea {
     height: 130px;
     width: 250px;
     display: block;
     margin-top: 0.5rem;
     resize: none;
+    font-size: 0.9rem;
 }
 
 .request-info .send-btn {

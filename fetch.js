@@ -6,8 +6,6 @@ const responseEl = document.querySelector(".response");
 
 form.addEventListener("submit", handleSubmit);
 
-// https://jsonplaceholder.typicode.com/todos/1
-
 async function handleSubmit(event) {
     event.preventDefault();
     const data = new FormData(event.target);
@@ -37,7 +35,6 @@ async function handleSubmit(event) {
 const api = {
     handleGet: async (url) => {
         const res = await fetch(url);
-        // console.log(res);
         responseEl.style.display = "block";
         messageEl.innerHTML = res.statusText;
         statusEl.innerHTML = res.status;
