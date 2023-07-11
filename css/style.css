@@ -1,0 +1,121 @@
+.app {
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    outline: 2px solid;
+    border-radius: 4px;
+}
+
+header,
+form {
+    padding: 1rem;
+}
+
+header {
+    padding-bottom: 0;
+}
+
+/* Request */
+.request-info {
+    display: flex;
+    gap: 1rem;
+    align-items: start;
+}
+
+.request-info .url-field {
+    width: 100%;
+}
+
+.request-info select {
+    height: 100%;
+}
+
+.request-info textarea {
+    min-height: 40px;
+    max-height: 100px;
+    width: 100%;
+    resize: vertical;
+}
+
+.request-info-2 {
+    margin-top: 1rem;
+}
+
+.request-info-2 .forms {
+    margin-top: 1rem;
+}
+
+.request-info-2 .btns button {
+    padding: 0.5em 1em;
+    font-weight: normal;
+}
+
+.req-body textarea {
+    height: 130px;
+    width: 250px;
+    display: block;
+    margin-top: 0.5rem;
+    resize: none;
+}
+
+.request-info .send-btn {
+    display: grid;
+    place-content: center;
+    background-color: #4bef7f;
+    color: #151f24;
+    padding: 0.5em 1.5em;
+    border-radius: 100vmax;
+}
+
+.request-info .send-btn:hover {
+    opacity: 0.6;
+}
+
+.request-info.send-btn:active {
+    scale: 0.99;
+}
+
+/* Response */
+.response-container {
+    outline: 1.5px solid var(--clr-primary);
+    margin: 1rem;
+    padding: 1rem;
+    border-radius: 4px;
+}
+
+.response {
+    display: none;
+}
+
+.response-container h3 {
+    margin-bottom: 0.5rem;
+}
+
+.response__main {
+    word-wrap: break-word;
+    line-height: 2;
+    background-color: var(--clr-primary);
+    color: var(--clr-secondary);
+    margin-top: 0rem;
+    padding: 1rem;
+    border-radius: 4px;
+}
+
+.json-text {
+    margin-block: 1rem 0.5rem;
+}
+
+.response__header {
+    display: flex;
+    gap: 1rem;
+}
+
+.response__header section {
+    display: flex;
+    gap: 0.2rem;
+    align-items: center;
+}
+
+.response__header p {
+    padding: 0.1em 0.3em;
+}

@@ -1,24 +1,17 @@
-const button = document.querySelector("button");
-const body = document.body;
+const btnBody = document.querySelector(".btn-body");
+const btnAuth = document.querySelector(".btn-auth");
 
-button.addEventListener("click", function () {
-    body.classList.toggle("dark-mode");
+const reqBodyForm = document.querySelector(".req-body");
+const reqAuthForm = document.querySelector(".req-auth");
+
+btnBody.addEventListener("click", (event) => {
+    event.preventDefault();
+    reqBodyForm.classList.replace("hide", "show");
+    reqAuthForm.classList.add("hide");
 });
 
-const prefersDarkMode = window.matchMedia(
-    "(prefers-color-scheme: dark)"
-).matches;
-
-if (prefersDarkMode) {
-    body.classList.add("dark-mode");
-}
-
-window
-    .matchMedia("(prefers-color-scheme: dark)")
-    .addEventListener("change", ({ matches }) => {
-        if (matches) {
-            body.classList.add("dark-mode");
-        } else {
-            body.classList.remove("dark-mode");
-        }
-    });
+btnAuth.addEventListener("click", (event) => {
+    event.preventDefault();
+    reqAuthForm.classList.replace("hide", "show");
+    reqBodyForm.classList.add("hide");
+});

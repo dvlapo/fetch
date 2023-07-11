@@ -3,19 +3,105 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Starter</title>
-        <link rel="stylesheet" href="style.css" />
+        <title>Fetch</title>
+        <link rel="stylesheet" href="/css/base.css" />
+        <link rel="stylesheet" href="/css/style.css" />
     </head>
     <body>
-        <h1>Starter</h1>
-        <p>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deserunt,
-            explicabo amet accusantium inventore pariatur ratione voluptatum
-            nisi et facilis quae sit autem nobis totam aliquam recusandae aut,
-            saepe beatae ipsa!
-        </p>
+        <main>
+            <button
+                aria-hidden="true"
+                title="Change theme"
+                class="color-theme-btn"
+            >
+                <i data-feather="sun" height="18px" class="sun"></i>
+                <i data-feather="moon" height="18px" class="moon"></i>
+            </button>
+            <div class="app">
+                <header>
+                    <h1>fetch()</h1>
+                </header>
+                <form>
+                    <div class="request-info">
+                        <label for="method">
+                            <div class="select">
+                                <select name="method" id="method">
+                                    <option value="get">GET</option>
+                                    <option value="post">POST</option>
+                                    <option value="put">PUT</option>
+                                    <option value="delete">DELETE</option>
+                                </select>
+                                <span class="focus"></span>
+                                <box-icon
+                                    color="var(--clr-primary)"
+                                    name="caret-down"
+                                ></box-icon>
+                            </div>
+                        </label>
 
-        <button>Toggle dark mode</button>
+                        <label for="url" class="url-field">
+                            <textarea
+                                name="url"
+                                placeholder="https://api.endpoint.com"
+                            ></textarea>
+                        </label>
+
+                        <button class="send-btn">
+                            <box-icon
+                                color="#151f24"
+                                type="solid"
+                                name="send"
+                            ></box-icon>
+                        </button>
+                    </div>
+
+                    <div class="request-info-2">
+                        <section class="btns">
+                            <button class="btn-body">Body</button>
+                            <button class="btn-auth">Auth</button>
+                        </section>
+                        <section class="forms">
+                            <div class="req-body hide">
+                                <label>
+                                    Request Body
+                                    <textarea
+                                        name="req-body"
+                                        id="req-body"
+                                    ></textarea>
+                                </label>
+                            </div>
+                            <div class="req-auth hide">auth</div>
+                        </section>
+                    </div>
+                </form>
+
+                <div class="response-container">
+                    <div class="response">
+                        <h3>Response</h3>
+                        <div class="response__header">
+                            <section>
+                                <h4>Status:</h4>
+                                <p id="status"></p>
+                            </section>
+                            <section>
+                                <h4>Message:</h4>
+                                <p id="message"></p>
+                            </section>
+                        </div>
+                        <h4 class="json-text">JSON Text:</h4>
+                        <blockquote class="response__main"></blockquote>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <script src="theme.js"></script>
+        <script src="fetch.js"></script>
         <script src="app.js"></script>
+        <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+        <script src="https://unpkg.com/feather-icons"></script>
+        <script>
+            feather.replace();
+        </script>
     </body>
 </html>
