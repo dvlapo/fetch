@@ -21,6 +21,7 @@
                 <header>
                     <h1>fetch()</h1>
                 </header>
+
                 <form>
                     <div class="request-info">
                         <label for="method">
@@ -42,6 +43,7 @@
                         <label for="url" class="url-field">
                             <textarea
                                 name="url"
+                                required
                                 placeholder="https://api.endpoint.com"
                             ></textarea>
                         </label>
@@ -82,8 +84,8 @@
                 </form>
 
                 <div class="response-container">
+                    <h3>Response</h3>
                     <div class="response">
-                        <h3>Response</h3>
                         <div class="response__header">
                             <section>
                                 <h4>Status:</h4>

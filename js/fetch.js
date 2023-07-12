@@ -48,12 +48,16 @@ async function updateUI(res) {
 const api = {
     handleGet: async (url, token) => {
         let res;
-        if (token) {
-            res = await fetch(url, {
-                headers: { Authorization: `Bearer ${token}` },
-            });
-        } else {
-            res = await fetch(url);
+        try {
+            if (token) {
+                res = await fetch(url, {
+                    headers: { Authorization: `Bearer ${token}` },
+                });
+            } else {
+                res = await fetch(url);
+            }
+        } catch (error) {
+            errorEl.innerHTML = error;
         }
         updateUI(res);
         return res;
