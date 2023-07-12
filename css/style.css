@@ -22,6 +22,11 @@ header {
     align-items: start;
 }
 
+.method {
+    max-width: fit-content;
+    margin-bottom: 1rem;
+}
+
 .request-info .url-field {
     width: 100%;
 }

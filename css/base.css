@@ -179,7 +179,7 @@ select {
 
 .select {
     position: relative;
-    width: 100%;
+    width: fit-content;
     min-width: 13ch;
     border: 1.5px solid var(--clr-primary);
     border-radius: 4px;
