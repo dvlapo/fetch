@@ -8,7 +8,7 @@
 
 header,
 form {
-    padding: 1rem;
+    padding: 1.5rem;
 }
 
 header {
@@ -42,19 +42,26 @@ header {
 }
 
 .request-info-2 .forms {
-    margin-top: 1rem;
+    margin-top: 2rem;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
 }
 
 .req-body textarea,
 .req-auth textarea {
     height: 130px;
-    width: 250px;
+    width: 100%;
     display: block;
     margin-top: 0.5rem;
     resize: none;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
+}
+
+.error-msg {
+    color: crimson;
+    margin-top: 0.5rem;
+    display: block;
 }
 
 .request-info .send-btn {
@@ -77,8 +84,8 @@ header {
 /* Response */
 .response-container {
     outline: 1.5px solid var(--clr-primary);
-    margin: 1rem;
-    padding: 1rem;
+    margin: 1.5rem;
+    padding: 1.5rem;
     border-radius: 4px;
 }
 
