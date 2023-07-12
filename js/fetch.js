@@ -5,6 +5,9 @@ const messageEl = document.querySelector("#message");
 const responseEl = document.querySelector(".response");
 const errorEl = document.querySelector(".error-msg");
 
+const reqBodyText = document.querySelector("#req-body");
+reqBodyText.setAttribute("placeholder", '{"name": "De Gea", "password": 1234}');
+
 form.addEventListener("submit", handleSubmit);
 
 async function handleSubmit(event) {
@@ -47,7 +50,7 @@ const api = {
         let res;
         if (token) {
             res = await fetch(url, {
-                headers: { Authentication: `Bearer ${token}` },
+                headers: { Authorization: `Bearer ${token}` },
             });
         } else {
             res = await fetch(url);
@@ -59,6 +62,7 @@ const api = {
         let res;
         let bodyJSON;
         const headers = {
+            Authorization: `Bearer ${token}`,
             "Content-Type": "application/json",
         };
 
