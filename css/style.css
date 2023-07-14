@@ -76,6 +76,7 @@ header {
     color: #151f24;
     padding: 0.5em 1.5em;
     border-radius: 100vmax;
+    outline-offset: 2px;
 }
 
 .request-info .send-btn:hover {

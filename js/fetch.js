@@ -12,7 +12,7 @@ form.addEventListener("submit", handleSubmit);
 
 async function handleSubmit(event) {
     event.preventDefault();
-    clearUI();
+    clearPrevResponse();
 
     const data = new FormData(event.target);
     const method = data.get("method");
@@ -46,7 +46,7 @@ async function updateUI(res) {
     const jsonStr = JSON.stringify(json);
     outputMain.innerHTML = jsonStr;
 }
-function clearUI() {
+function clearPrevResponse() {
     errorEl.innerHTML = "";
     responseEl.style.display = "none";
     messageEl.innerHTML = "";
