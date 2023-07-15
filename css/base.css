@@ -65,8 +65,9 @@ h6 {
 
 body {
     --clr-primary: #151f24;
-    --clr-secondary: #fcf8f4;
+    --clr-secondary: #fcfcfc;
     --clr-accent: #4bbeef;
+    --clr-border: hsl(180, 67%, 20%);
     transition: background-color 200ms, color 200ms;
 }
 
@@ -74,6 +75,7 @@ body.dark-mode {
     --clr-primary: #fef3e9;
     --clr-secondary: #151f24;
     --clr-accent: #4bef7f;
+    --clr-border: #afefef;
 }
 
 body {
@@ -99,7 +101,7 @@ body {
     margin-left: auto;
     background-color: var(--clr-secondary);
     color: var(--clr-primary);
-    border: 1.5px solid var(--clr-primary);
+    border: 1.5px solid var(--clr-border);
     outline-offset: 2px;
 }
 
@@ -141,7 +143,7 @@ main {
 
 textarea {
     padding: 0.4em 0.5em;
-    border: 1.5px solid var(--clr-primary);
+    border: 1.5px solid var(--clr-border);
     border-radius: 4px;
 }
 
@@ -181,7 +183,7 @@ select {
     position: relative;
     width: fit-content;
     min-width: 13ch;
-    border: 1.5px solid var(--clr-primary);
+    border: 1.5px solid var(--clr-border);
     border-radius: 4px;
     cursor: pointer;
     display: flex;

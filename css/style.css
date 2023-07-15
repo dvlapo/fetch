@@ -2,8 +2,8 @@
     margin-top: 1rem;
     margin-bottom: 2rem;
     padding-bottom: 2rem;
-    outline: 2px solid;
-    border-radius: 4px;
+    outline: 1.5px solid var(--clr-border);
+    border-radius: 8px;
 }
 
 header,
@@ -89,7 +89,7 @@ header {
 
 /* Response */
 .response-container {
-    outline: 1.5px solid var(--clr-primary);
+    outline: 1.5px solid var(--clr-border);
     margin: 1.5rem;
     padding: 1.5rem;
     border-radius: 4px;
