@@ -1,5 +1,5 @@
 const form = document.querySelector("form");
-const outputMain = document.querySelector(".response__main");
+const responseMain = document.querySelector(".response__main");
 const statusEl = document.querySelector("#status");
 const messageEl = document.querySelector("#message");
 const responseEl = document.querySelector(".response");
@@ -44,14 +44,14 @@ async function updateUI(res) {
     statusEl.innerHTML = res.status;
     const json = await res.json();
     const jsonStr = JSON.stringify(json);
-    outputMain.innerHTML = jsonStr;
+    responseMain.innerHTML = jsonStr;
 }
 function clearPrevResponse() {
     errorEl.innerHTML = "";
     responseEl.style.display = "none";
     messageEl.innerHTML = "";
     statusEl.innerHTML = "";
-    outputMain.innerHTML = "";
+    responseMain.innerHTML = "";
 }
 
 const api = {

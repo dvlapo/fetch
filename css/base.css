@@ -68,14 +68,14 @@ body {
     --clr-secondary: #fcfcfc;
     --clr-accent: #4bbeef;
     --clr-border: hsl(180, 67%, 20%);
-    transition: background-color 200ms, color 200ms;
+    transition: all 200ms;
 }
 
 body.dark-mode {
-    --clr-primary: #fef3e9;
-    --clr-secondary: #151f24;
-    --clr-accent: #4bef7f;
-    --clr-border: #afefef;
+    --clr-primary: #fff;
+    --clr-secondary: #161719;
+    --clr-accent: #5f85db;
+    --clr-border: #6d89b5;
 }
 
 body {
@@ -93,15 +93,13 @@ body {
 }
 
 .color-theme-btn {
-    text-align: center;
     display: grid;
     place-content: center;
-    padding: 0.5em 1em;
-    border-radius: 100vmax;
     margin-left: auto;
-    background-color: var(--clr-secondary);
+    border-radius: 50%;
+    aspect-ratio: 1;
+    background-color: transparent;
     color: var(--clr-primary);
-    border: 1.5px solid var(--clr-border);
     outline-offset: 2px;
 }
 
@@ -145,6 +143,8 @@ textarea {
     padding: 0.4em 0.5em;
     border: 1.5px solid var(--clr-border);
     border-radius: 4px;
+    background-color: transparent;
+    color: var(--clr-primary);
 }
 
 textarea:focus-visible {
@@ -159,8 +159,8 @@ button {
 }
 
 ::selection {
-    background-color: var(--clr-secondary);
-    color: var(--clr-primary);
+    background-color: var(--clr-primary);
+    color: var(--clr-secondary);
 }
 
 /* Custom select */

@@ -37,3 +37,19 @@ window
             localStorage.removeItem("f-theme");
         }
     });
+
+// Grain background
+const grainBg = document.querySelector(".grain");
+const grainContainer = document.querySelector(".grain-container");
+
+function setGrainBgDimensions() {
+    window.scrollTo(0, 0);
+    const html = document.documentElement;
+    const { height } = html.getBoundingClientRect();
+    const windowWidth = window.innerWidth;
+    grainContainer.style.height = `${height + 300}px`;
+    grainBg.setAttribute("viewBox", `0 0 ${windowWidth} ${height + 300}`);
+}
+
+setGrainBgDimensions();
+window.addEventListener("resize", setGrainBgDimensions);
