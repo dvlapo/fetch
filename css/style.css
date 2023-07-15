@@ -116,8 +116,7 @@ header {
     margin: 1.5rem;
     padding: 1.5rem;
     border-radius: 4px;
-    max-height: 300px;
-    overflow-y: scroll;
+    max-height: fit-content;
 }
 
 /* Custom scrollbar for Webkit browsers */
@@ -154,9 +153,12 @@ header {
     background-color: transparent;
     color: var(--clr-primary);
     margin-top: 0rem;
+    padding-bottom: 2rem;
     padding: 1rem;
     border-radius: 4px;
     border: 1.5px solid var(--clr-border);
+    max-height: 150px;
+    overflow-y: scroll;
 }
 
 .json-text {
