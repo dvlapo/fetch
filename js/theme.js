@@ -43,7 +43,9 @@ const grainBg = document.querySelector(".grain");
 const grainContainer = document.querySelector(".grain-container");
 
 function setGrainBgDimensions() {
-    window.scrollTo(0, 0);
+    if (window.innerWidth > 650) {
+        window.scrollTo(0, 0);
+    }
     const html = document.documentElement;
     const { height } = html.getBoundingClientRect();
     const windowWidth = window.innerWidth;
