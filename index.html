@@ -102,21 +102,29 @@
                     </div>
                 </form>
 
-                <div class="response-container">
-                    <h3>Response</h3>
-                    <div class="response">
-                        <div class="response__header">
-                            <section>
-                                <h4>Status:</h4>
-                                <p id="status"></p>
-                            </section>
-                            <section>
-                                <h4>Message:</h4>
-                                <p id="message"></p>
-                            </section>
+                <div class="bottom">
+                    <div class="history">
+                        <h3>History</h3>
+                        <ul id="history-list"></ul>
+                    </div>
+
+                    <div class="response-container">
+                        <h3>Response</h3>
+                        <p class="loading"></p>
+                        <div class="response">
+                            <div class="response__header">
+                                <section>
+                                    <h4>Status:</h4>
+                                    <p id="status"></p>
+                                </section>
+                                <section>
+                                    <h4>Message:</h4>
+                                    <p id="message"></p>
+                                </section>
+                            </div>
+                            <h4 class="json-text">JSON Text:</h4>
+                            <blockquote class="response__main"></blockquote>
                         </div>
-                        <h4 class="json-text">JSON Text:</h4>
-                        <blockquote class="response__main"></blockquote>
                     </div>
                 </div>
             </div>

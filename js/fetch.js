@@ -4,6 +4,7 @@ const statusEl = document.querySelector("#status");
 const messageEl = document.querySelector("#message");
 const responseEl = document.querySelector(".response");
 const errorEl = document.querySelector(".error-msg");
+const loadingEl = document.querySelector(".loading");
 
 const reqBodyText = document.querySelector("#req-body");
 reqBodyText.setAttribute("placeholder", '{"name": "De Gea", "password": 1234}');
@@ -13,6 +14,7 @@ form.addEventListener("submit", handleSubmit);
 async function handleSubmit(event) {
     event.preventDefault();
     clearPrevResponse();
+    loadingEl.innerHTML = "Loading...";
 
     const data = new FormData(event.target);
     const method = data.get("method");
@@ -39,6 +41,7 @@ async function updateUI(res) {
         statusEl.classList.add("error");
         statusEl.classList.remove("success");
     }
+    loadingEl.innerHTML = "";
     responseEl.style.display = "block";
     messageEl.innerHTML = res.statusText;
     statusEl.innerHTML = res.status;
@@ -68,6 +71,17 @@ const api = {
         } catch (error) {
             errorEl.innerHTML = error;
         }
+
+        const resClone = res.clone();
+        await saveRequest({
+            url,
+            res: await resClone.json(),
+            resStatus: res.status,
+            statusText: res.statusText,
+            method: "get",
+        });
+        loadingEl.innerHTML = "";
+
         updateUI(res);
         return res;
     },
@@ -92,6 +106,17 @@ const api = {
             method: "POST",
             body: JSON.stringify(bodyJSON),
             headers: headers,
+        });
+        loadingEl.innerHTML = "";
+
+        const resClone = res.clone();
+        await saveRequest({
+            url,
+            body: bodyJSON,
+            res: await resClone.json(),
+            resStatus: res.status,
+            statusText: res.statusText,
+            method: "post",
         });
 
         updateUI(res);
@@ -119,7 +144,17 @@ const api = {
             body: JSON.stringify(bodyJSON),
             headers: headers,
         });
+        loadingEl.innerHTML = "";
 
+        const resClone = res.clone();
+        await saveRequest({
+            url,
+            body: bodyJSON,
+            res: await resClone.json(),
+            resStatus: res.status,
+            statusText: res.statusText,
+            method: "post",
+        });
         updateUI(res);
     },
     handleDelete: async (url, body, token) => {
@@ -145,7 +180,65 @@ const api = {
             body: JSON.stringify(bodyJSON),
             headers: headers,
         });
+        loadingEl.innerHTML = "";
+
+        const resClone = res.clone();
+        await saveRequest({
+            url,
+            body: bodyJSON,
+            res: await resClone.json(),
+            resStatus: res.status,
+            statusText: res.statusText,
+            method: "post",
+        });
 
         updateUI(res);
     },
 };
+
+// DB Functions
+async function openDB() {
+    return await idb.openDB("f-storage", 1, {
+        async upgrade(db) {
+            await db.createObjectStore("requests", {
+                keyPath: "req",
+                autoIncrement: true,
+            });
+        },
+    });
+}
+
+(async function () {
+    await openDB();
+    const db = await openDB();
+    const savedRequests = await db.getAll("requests");
+    updateRequestHistoryUI(savedRequests);
+})();
+
+function updateRequestHistoryUI(historyList) {
+    const ul = document.querySelector("#history-list");
+    ul.innerHTML = "";
+
+    historyList
+        .reverse()
+        .splice(0, 5)
+        .forEach((req) => {
+            const html = `<small>${req.method}</small>
+        <p>${req.url}</p>`;
+            const li = document.createElement("li");
+            li.innerHTML = html;
+            li.setAttribute("role", "button");
+            ul.appendChild(li);
+        });
+}
+
+async function saveRequest(obj) {
+    try {
+        const db = await openDB();
+        await db.add("requests", obj);
+        const savedRequests = await db.getAll("requests");
+        updateRequestHistoryUI(savedRequests);
+    } catch (error) {
+        console.log(error);
+    }
+}
