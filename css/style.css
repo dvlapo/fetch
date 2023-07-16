@@ -59,7 +59,7 @@ header {
 }
 
 .request-info textarea {
-    min-height: 40px;
+    min-height: 50px;
     max-height: 100px;
     width: 100%;
     resize: vertical;
