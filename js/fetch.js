@@ -227,10 +227,50 @@ function updateRequestHistoryUI(historyList) {
         <p>${req.url}</p>`;
             const li = document.createElement("li");
             li.innerHTML = html;
+
             li.setAttribute("role", "button");
+            li.setAttribute("data-id", req.req);
+            li.setAttribute("class", "req-item");
             ul.appendChild(li);
         });
 }
+
+let reqInHistory;
+
+window.addEventListener("DOMContentLoaded", () => {
+    reqInHistory = document.querySelectorAll(".req-item");
+
+    reqInHistory.forEach((req) => {
+        req.addEventListener("click", async () => {
+            const id = req.getAttribute("data-id");
+            const db = await openDB();
+            const savedRequests = await db.getAll("requests");
+
+            const targ = savedRequests.find((req) => req.req === +id);
+            // Update UI
+            if (targ.resStatus === 200 || targ.resStatus === 201) {
+                statusEl.classList.add("success");
+                statusEl.classList.remove("error");
+            } else {
+                statusEl.classList.add("error");
+                statusEl.classList.remove("success");
+            }
+
+            const url = document.querySelector(".url");
+
+            // 🍝
+            loadingEl.innerHTML = "";
+            responseEl.style.display = "block";
+            messageEl.innerHTML = targ.statusText;
+            statusEl.innerHTML = targ.resStatus;
+            targ.body
+                ? (reqBodyText.value = JSON.stringify(targ.body))
+                : (reqBodyText.value = "");
+            url.value = targ.url;
+            responseMain.innerHTML = JSON.stringify(targ.res);
+        });
+    });
+});
 
 async function saveRequest(obj) {
     try {
