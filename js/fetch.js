@@ -233,11 +233,13 @@ function updateRequestHistoryUI(historyList) {
             li.setAttribute("class", "req-item");
             ul.appendChild(li);
         });
+
+    addHistoryListFn();
 }
 
 let reqInHistory;
 
-window.addEventListener("DOMContentLoaded", () => {
+function addHistoryListFn() {
     reqInHistory = document.querySelectorAll(".req-item");
 
     reqInHistory.forEach((req) => {
@@ -270,7 +272,9 @@ window.addEventListener("DOMContentLoaded", () => {
             responseMain.innerHTML = JSON.stringify(targ.res);
         });
     });
-});
+}
+
+window.addEventListener("DOMContentLoaded", addHistoryListFn);
 
 async function saveRequest(obj) {
     try {
