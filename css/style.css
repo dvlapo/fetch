@@ -1,6 +1,6 @@
 .app {
     margin-top: 1rem;
-    margin-bottom: 10vw;
+    margin-bottom: max(10vw, 4rem);
     padding-bottom: 2rem;
     border-radius: 8px;
     position: relative;
