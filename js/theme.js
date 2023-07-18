@@ -43,14 +43,11 @@ const grainBg = document.querySelector(".grain");
 const grainContainer = document.querySelector(".grain-container");
 
 function setGrainBgDimensions() {
-    if (window.innerWidth > 650) {
-        window.scrollTo(0, 0);
-    }
     const html = document.documentElement;
     const { height } = html.getBoundingClientRect();
     const windowWidth = window.innerWidth;
-    grainContainer.style.height = `${height + 300}px`;
-    grainBg.setAttribute("viewBox", `0 0 ${windowWidth} ${height + 300}`);
+    grainContainer.style.height = `${height}px`;
+    grainBg.setAttribute("viewBox", `0 0 ${windowWidth} ${height}`);
 }
 
 setGrainBgDimensions();
