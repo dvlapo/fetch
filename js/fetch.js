@@ -18,6 +18,7 @@ async function handleSubmit(event) {
     event.preventDefault();
     clearPrevResponse();
     loadingEl.innerHTML = "Loading...";
+    errorEl.innerHTML = "";
 
     const data = new FormData(event.target);
     const method = data.get("method");
