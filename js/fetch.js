@@ -158,7 +158,7 @@ const api = {
             res: await resClone.json(),
             resStatus: res.status,
             statusText: res.statusText,
-            method: "post",
+            method: "put",
         });
         updateUI(res);
     },
@@ -194,7 +194,7 @@ const api = {
             res: await resClone.json(),
             resStatus: res.status,
             statusText: res.statusText,
-            method: "post",
+            method: "delete",
         });
 
         updateUI(res);
