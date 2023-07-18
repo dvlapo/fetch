@@ -213,6 +213,7 @@ header {
 /* Custom scrollbar for Webkit browsers */
 ::-webkit-scrollbar {
     width: 4px;
+    height: 2px;
 }
 ::-webkit-scrollbar-track {
     background: transparent;
