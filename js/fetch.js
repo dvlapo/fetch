@@ -46,7 +46,7 @@ async function updateUI(res) {
     messageEl.innerHTML = res.statusText;
     statusEl.innerHTML = res.status;
     const json = await res.json();
-    const jsonStr = JSON.stringify(json);
+    const jsonStr = JSON.stringify(json, undefined, 2);
     responseMain.innerHTML = jsonStr;
 }
 function clearPrevResponse() {
@@ -63,6 +63,7 @@ const api = {
         try {
             if (token) {
                 res = await fetch(url, {
+                    // mode: "no-cors",
                     headers: { Authorization: `Bearer ${token}` },
                 });
             } else {
@@ -104,6 +105,7 @@ const api = {
 
         res = await fetch(url, {
             method: "POST",
+            // mode: "no-cors",
             body: JSON.stringify(bodyJSON),
             headers: headers,
         });
@@ -266,10 +268,10 @@ function addHistoryListFn() {
             messageEl.innerHTML = targ.statusText;
             statusEl.innerHTML = targ.resStatus;
             targ.body
-                ? (reqBodyText.value = JSON.stringify(targ.body))
+                ? (reqBodyText.value = JSON.stringify(targ.body, undefined, 2))
                 : (reqBodyText.value = "");
             url.value = targ.url;
-            responseMain.innerHTML = JSON.stringify(targ.res);
+            responseMain.innerHTML = JSON.stringify(targ.res, undefined, 2);
         });
     });
 }

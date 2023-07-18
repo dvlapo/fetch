@@ -125,7 +125,14 @@ header {
     padding: min(1em, 5%);
     border-radius: 4px;
     max-height: fit-content;
-    width: min(400px, 100%);
+}
+
+.response-container {
+    width: min(500px, 100%);
+}
+
+.history {
+    width: min(300px, 100%);
 }
 
 @media (max-width: 768px) {
@@ -228,7 +235,7 @@ header {
     border: 1.5px solid var(--clr-border);
     max-height: 150px;
     aspect-ratio: 19/9;
-    width: 100%;
+    width: 100% !important;
     overflow-y: scroll;
 }
 
