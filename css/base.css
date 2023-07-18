@@ -20,7 +20,8 @@ img {
 input,
 button,
 textarea,
-select {
+select,
+pre {
     font: inherit;
 }
 

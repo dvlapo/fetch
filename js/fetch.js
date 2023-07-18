@@ -7,7 +7,10 @@ const errorEl = document.querySelector(".error-msg");
 const loadingEl = document.querySelector(".loading");
 
 const reqBodyText = document.querySelector("#req-body");
-reqBodyText.setAttribute("placeholder", '{"name": "De Gea", "password": 1234}');
+reqBodyText.setAttribute(
+    "placeholder",
+    JSON.stringify({ name: "De Gea", password: 1234 }, null, 2)
+);
 
 form.addEventListener("submit", handleSubmit);
 

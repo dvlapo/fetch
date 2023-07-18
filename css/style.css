@@ -1,6 +1,6 @@
 .app {
     margin-top: 1rem;
-    margin-bottom: 2rem;
+    margin-bottom: 10vw;
     padding-bottom: 2rem;
     border-radius: 8px;
     position: relative;
@@ -13,7 +13,7 @@ body.dark-mode .app {
 }
 
 .grain-container {
-    position: absolute;
+    position: fixed;
     inset: 0 0 auto 0;
     width: 100%;
     height: 100%;
@@ -22,11 +22,15 @@ body.dark-mode .app {
 }
 
 svg.grain {
-    opacity: 0.15;
+    opacity: 1;
     position: absolute;
-    height: 100%;
+    min-height: 100%;
     width: 100%;
     inset: 0 0 auto 0;
+}
+
+body.dark-mode svg.grain {
+    opacity: 0.15;
 }
 
 header,
@@ -97,10 +101,11 @@ header {
     place-content: center;
     background-color: #4bef7f;
     color: #151f24;
-    padding: 0.5em 1.5em;
+    padding: 0.4em 1.3em;
     border-radius: 100vmax;
     outline-offset: 2px;
     margin-bottom: 2px;
+    transition: 120ms;
 }
 
 .request-info .send-btn:hover {
@@ -125,6 +130,7 @@ header {
     padding: min(1em, 5%);
     border-radius: 4px;
     max-height: fit-content;
+    transition: 300ms;
 }
 
 .response-container {
@@ -133,6 +139,15 @@ header {
 
 .history {
     width: min(300px, 100%);
+}
+
+.bottom.stack {
+    flex-direction: column-reverse;
+}
+
+.bottom.stack .history,
+.response-container {
+    width: 100%;
 }
 
 @media (max-width: 768px) {
@@ -256,4 +271,67 @@ header {
 
 .response__header p {
     padding: 0.1em 0.3em;
+}
+
+.toggle-layout-wrapper {
+    display: block;
+    margin-right: 1.5rem;
+    margin-left: auto;
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    border-radius: 5px;
+    width: 70px;
+    height: 30px;
+    background-color: var(--clr-secondary-o);
+}
+
+.toggle-layout-wrapper box-icon {
+    border-radius: 4px;
+}
+
+#toggle-layout {
+    position: absolute;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.layout-icons {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    justify-items: center;
+    padding: 0.2em 0.1em;
+    position: absolute;
+    inset: 0;
+}
+.toggle-layout-wrapper .bg {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    inset: 0;
+    background-color: #bdb9b9;
+    z-index: -2;
+    transition: 150ms;
+}
+
+body.dark-mode .toggle-layout-wrapper {
+    background-color: var(--clr-secondary-o);
+}
+
+body.dark-mode .toggle-layout-wrapper .bg {
+    background-color: var(--clr-secondary);
+}
+
+#toggle-layout:checked + .bg {
+    left: 50%;
+}
+
+/* Response layout is stacked on small screens; remove toggle button */
+@media (max-width: 768px) {
+    .toggle-layout-wrapper {
+        display: none;
+    }
 }
