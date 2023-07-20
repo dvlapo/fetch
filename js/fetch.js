@@ -67,7 +67,6 @@ const api = {
         try {
             if (token) {
                 res = await fetch(url, {
-                    // mode: "no-cors",
                     headers: { Authorization: `Bearer ${token}` },
                 });
             } else {
@@ -109,9 +108,8 @@ const api = {
 
         res = await fetch(url, {
             method: "POST",
-            // mode: "no-cors",
             body: JSON.stringify(bodyJSON),
-            headers: headers,
+            headers: headers,            
         });
         loadingEl.innerHTML = "";
 
