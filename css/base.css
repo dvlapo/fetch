@@ -57,7 +57,7 @@ body.dark-mode {
     --clr-border: #6d89b5;
 }
 
-body {
+body.light-mode {
     color: var(--clr-primary);
     background-color: var(--clr-secondary);
     accent-color: var(--clr-accent);
