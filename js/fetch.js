@@ -109,7 +109,7 @@ const api = {
         res = await fetch(url, {
             method: "POST",
             body: JSON.stringify(bodyJSON),
-            headers: headers,            
+            headers: headers,
         });
         loadingEl.innerHTML = "";
 
@@ -158,6 +158,42 @@ const api = {
             resStatus: res.status,
             statusText: res.statusText,
             method: "put",
+        });
+        updateUI(res);
+    },
+    handlePatch: async (url, body, token) => {
+        let res;
+        let bodyJSON;
+
+        const headers = {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
+        };
+
+        if (body) {
+            try {
+                bodyJSON = JSON.parse(body);
+            } catch (error) {
+                errorEl.innerHTML =
+                    "Please enter the request body in JSON format";
+            }
+        }
+
+        res = await fetch(url, {
+            method: "PATCH",
+            body: JSON.stringify(bodyJSON),
+            headers: headers,
+        });
+        loadingEl.innerHTML = "";
+
+        const resClone = res.clone();
+        await saveRequest({
+            url,
+            body: bodyJSON,
+            res: await resClone.json(),
+            resStatus: res.status,
+            statusText: res.statusText,
+            method: "patch",
         });
         updateUI(res);
     },
