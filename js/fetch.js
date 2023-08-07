@@ -32,6 +32,8 @@ async function handleSubmit(event) {
         api.handlePost(url, req_body, token);
     } else if (method === "put") {
         api.handlePut(url, req_body, token);
+    } else if (method === "patch") {
+        api.handlePatch(url, req_body, token);
     } else if (method === "delete") {
         api.handleDelete(url, req_body, token);
     }
